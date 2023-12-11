@@ -32,8 +32,10 @@ export const App = () => {
           } else if (totalHits < page * perPage && totalHits !== 0) {
             delayNotify();
           }
-
-          setImages(prevImages => [...prevImages, ...hits]);
+          // (prev => (page === 1 ? hits : [...prev, ...hits]));
+          setImages(prevImages =>
+            page === 1 ? hits : [...prevImages, ...hits]
+          );
           setLoadMore(page < Math.ceil(totalHits / perPage));
         } catch (error) {
           Notiflix.Notify.failure(error.message);

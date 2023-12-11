@@ -11,7 +11,8 @@ const Searchbar = ({ onSubmit }) => {
     if (searchValue === '') {
       return Notiflix.Notify.failure('Please, fill in the field!');
     }
-    onSubmit({ query: searchValue, page: 1, images: [] });
+    // onSubmit({ query: searchValue, page: 1, images: [] });
+    onSubmit(searchValue);
   };
   return (
     <header className={css.searchbar}>
