@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import css from './Modal.module.css';
 
-const Modal = ({ imageUrl, id, onClose }) => {
+const Modal = ({ imageUrl, alt, onClose }) => {
   useEffect(() => {
     const handleEsc = e => {
       if (e.code === 'Escape') {
@@ -26,7 +26,7 @@ const Modal = ({ imageUrl, id, onClose }) => {
   return (
     <div handleLoad={backDropClose} className={css.overlay}>
       <div className={css.modal}>
-        <img src={imageUrl} alt={id} />
+        <img src={imageUrl} alt={alt} />
       </div>
     </div>
   );
