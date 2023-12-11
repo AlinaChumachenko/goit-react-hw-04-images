@@ -7,7 +7,7 @@ const ImageGalleryItem = ({ image }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
-    isModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
@@ -35,42 +35,3 @@ const ImageGalleryItem = ({ image }) => {
 };
 
 export default ImageGalleryItem;
-
-// class ImageGalleryItem extends Component {
-//   state = {
-//     isModalOpen: false,
-//   };
-
-//   openModal = () => {
-//     this.setState({ isModalOpen: true });
-//   };
-
-//   closeModal = () => {
-//     this.setState({ isModalOpen: false });
-//   };
-
-//   render() {
-//     const { image } = this.props;
-//     const { isModalOpen } = this.state;
-//     return (
-//       <>
-//         <li className={css.galleryItem} onClick={this.openModal}>
-//           <img
-//             src={image.webformatURL}
-//             alt={image.id}
-//             className={css.galleryItemImage}
-//           />
-//         </li>
-//         {isModalOpen && (
-//           <Modal
-//             imageUrl={image.largeImageURL}
-//             alt={image.id}
-//             close={this.closeModal}
-//           />
-//         )}
-//       </>
-//     );
-//   }
-// }
-
-// export default ImageGalleryItem;
