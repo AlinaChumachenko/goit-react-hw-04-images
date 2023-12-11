@@ -1,24 +1,27 @@
 import { useEffect } from 'react';
 import css from './Modal.module.css';
 
-const Modal = ({ imageUrl, id, close }) => {
+const Modal = ({ imageUrl, id, onClose }) => {
   useEffect(() => {
-    document.addEventListener('keydown', handleEsc);
-  });
+    const handleEsc = e => {
+      if (e.code === 'Escape') {
+        onClose();
+      }
+    };
 
-  useEffect(() => {
-    document.removeEventListener('keydown', handleEsc);
-  });
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [onClose]);
 
   const backDropClose = e => {
-    if (e.target.classList.contains(css.overlay)) {
-      close();
+    if (e.currentTarget === e.target) {
+      onClose();
     }
   };
 
-  const handleEsc = e => {
-    e.code === 'Escape' && close();
-  };
+  // const handleEsc = e => {
+  //   e.code === 'Escape' && close();
+  // };
 
   return (
     <div handleLoad={backDropClose} className={css.overlay}>

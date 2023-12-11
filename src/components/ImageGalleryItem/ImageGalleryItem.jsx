@@ -27,7 +27,7 @@ const ImageGalleryItem = ({ image }) => {
         <Modal
           imageUrl={image.largeImageURL}
           alt={image.id}
-          close={closeModal}
+          onClose={closeModal}
         />
       )}
     </>
